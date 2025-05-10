@@ -17,7 +17,7 @@ if st.button("Clasificar"):
             respuesta = requests.get(f"{API_URL}{mensaje}")
             if respuesta.status_code == 200:
                 resultado = respuesta.json()
-                st.success(f"FRASE: {mensaje} - Predicción: {resultado['prediction']}")
+                st.success(f"FRASE: {mensaje} - Predicción: {resultado['prediction'][0]}")
             else:
                 st.error(f"Error al conectar: {respuesta.status_code}")
         except Exception as e:
